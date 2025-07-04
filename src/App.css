@@ -1,0 +1,348 @@
+/* Base Reset */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* Theme Base */
+.theme-light {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.theme-dark {
+  background-color: #111827;
+  color: #f9fafb;
+}
+
+.theme-neon {
+  background-color: #0f0f0f;
+  color: #39ff14;
+}
+
+.theme-pastel {
+  background-color: #ffe4e1;
+  color: #4b5563;
+}
+
+/* Layout */
+.main-container {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+/* Game area */
+.left-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  min-width: 300px;
+  transition: all 0.4s;
+}
+
+.theme-dark .left-section {
+  background: #1f2937;
+}
+
+.theme-neon .left-section {
+  background: #141414;
+  border: 2px solid #39ff14;
+}
+
+.theme-pastel .left-section {
+  background: #fff0f5;
+}
+
+/* History area */
+.right-section {
+  flex: 0.8;
+  min-width: 260px;
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  max-height: 500px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.theme-dark .right-section {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+.theme-neon .right-section {
+  background-color: #141414;
+  color: #39ff14;
+}
+
+.theme-pastel .right-section {
+  background-color: #fff0f5;
+  color: #4b5563;
+}
+
+.right-section h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Theme dropdown */
+.theme-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.theme-dropdown select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: #ffffff;
+  border: 2px solid #d1d5db;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.theme-dark .theme-dropdown select {
+  background-color: #374151;
+  color: #f9fafb;
+  border-color: #4b5563;
+}
+
+.theme-neon .theme-dropdown select {
+  background-color: #0f0f0f;
+  color: #39ff14;
+  border-color: #39ff14;
+}
+
+.theme-pastel .theme-dropdown select {
+  background-color: #ffe4e1;
+  color: #4b5563;
+  border-color: #fca5a5;
+}
+
+.theme-dropdown select:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.status {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Game board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  backdrop-filter: blur(4px);
+  border: 1.5px solid rgba(161,196,253,0.25);
+  padding: 18px 12px 12px 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.cell {
+  width: 100%;
+  aspect-ratio: 1;
+  background: rgba(255,255,255,0.7);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(161,196,253,0.18);
+  border: 2px solid #e0e7ef;
+  font-size: 2.2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(.4,2,.6,1);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+}
+
+.cell.x {
+  color: #3b82f6;
+  text-shadow: 0 2px 12px #a1c4fd;
+}
+
+.cell.o {
+  color: #ef4444;
+  text-shadow: 0 2px 12px #fbc2eb;
+}
+
+.cell.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cell-content {
+  z-index: 1;
+  position: relative;
+}
+
+/* Reset button */
+.reset-btn {
+  width: 100%;
+  padding: 10px;
+  background: #10b981;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-btn:hover {
+  background: #059669;
+}
+
+/* History list */
+.history {
+  margin-top: 10px;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  color: inherit;
+}
+
+.history-item {
+  padding: 6px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.theme-dark .history-item {
+  border-bottom: 1px solid #374151;
+}
+
+.theme-neon .history-item {
+  border-bottom: 1px solid #39ff14;
+}
+
+.theme-pastel .history-item {
+  border-bottom: 1px solid #fca5a5;
+}
+
+.history-item:first-child {
+  color: #4f46e5;
+  background: #e0e7ff;
+  border-radius: 5px;
+}
+
+.theme-dark .history-item:first-child {
+  background: #374151;
+  color: #818cf8;
+}
+
+.theme-neon .history-item:first-child {
+  background: #1a1a1a;
+  color: #39ff14;
+}
+
+.theme-pastel .history-item:first-child {
+  background: #fcd5ce;
+  color: #b91c1c;
+}
+
+/* Empty history message */
+.empty-history {
+  font-style: italic;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Animated dynamic background */
+.animated-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  animation: none;
+}
+
+/* Tactile cell press effect */
+.cell-pressed {
+  box-shadow: 0 2px 16px #60a5fa55, 0 1.5px 0 #60a5fa;
+  transform: scale(0.93) !important;
+  transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+}
+
+/* Ripple effect for cell click */
+.ripple {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(161,196,253,0.25);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  animation: ripple-anim 0.3s linear;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Responsive and beautiful tweaks */
+@media (max-width: 700px) {
+  .main-container {
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px;
+  }
+  .left-section, .right-section {
+    min-width: unset;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .board {
+    padding: 10px 2px 2px 2px;
+  }
+}
