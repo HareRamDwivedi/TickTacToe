@@ -1,6 +1,6 @@
 # Tic Tac Toe React App — Line-by-Line Code Walkthrough
 
-This README provides an extremely detailed, beginner-friendly explanation of every single line of code in `src/App.jsx`. The goal is to help you understand not just what the code does, but why each part is used, and how it fits into the overall React app.
+This README provides an extremely detailed, beginner-friendly explanation of every single line of code in `src/App.jsx`. The goal is to help you understand not just what the code does, but why each part is used, and how it fits into the overall React app.(12th march 2024)
 
 ---
 
@@ -374,5 +374,4 @@ export default App;
 - The app is interactive, persistent, and visually engaging, using both React and CSS.
 
 If you have questions about any specific line or want to go even deeper into React concepts, just ask!
-#   T i c k T a c T o e  
- 
+#
